@@ -1,0 +1,49 @@
+<header class="header navbar">
+    <div class="brand visible-xs">
+        <div class="toggle-offscreen">
+            <a href="#" class="hamburger-icon visible-xs" data-toggle="offscreen" data-move="ltr">
+                <span></span>
+                <span></span>
+                <span></span>
+            </a>
+        </div>
+        <div class="brand-logo">
+            URBAN THEME
+        </div>
+    </div>
+    <ul class="nav navbar-nav hidden-xs">
+        <li>
+            <p class="navbar-text">Dashboard</p>
+        </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right hidden-xs">
+        <li class="active">
+            <a href="/post/index">Krill</a>
+        </li>
+        <li class="">
+            <a href="/uz/post/index">O'zbekcha</a>
+        </li>
+        <li class="">
+            <a href="/ru/post/index">Ruscha</a>
+        </li>
+        <li>
+            <a href="/system/cache">
+                <i class="fa fa-refresh"></i>
+            </a>
+        </li>
+
+        <li>
+            <a data-toggle="dropdown">
+                <span>{{user.username}}</span>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                    <a href="/dashboard/profile">Profile</a>
+                </li>
+                <li>
+                    <a href="/dashboard/logout">Logout</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</header>

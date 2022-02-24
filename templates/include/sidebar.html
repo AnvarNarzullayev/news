@@ -1,0 +1,170 @@
+<div class="sidebar-panel offscreen-left">
+
+    <div class="brand">
+        <a href="javascript:;" class="toggle-sidebar hidden-xs hamburger-icon v3"
+           data-toggle="layout-small-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </a>
+    </div>
+
+    <!-- main navigation -->
+    {% with request.resolver_match.url_name as url_name %}
+    <nav class="ps-container ps-theme-default" role="navigation">
+        <ul class="nav">
+            <li class="menu-accordion {% if url_name == 'home' or url_name == 'categories' %}open{% endif %}">
+                <a href="/post/#">
+                    <i class="fa fa-globe"></i>
+                    <span>News</span>
+                </a>
+                <ul class="sub-menu">
+                    <li class="{% if url_name == 'home' %}active{% endif %}">
+                        <a href="{% url 'home' %}">
+                            <span>Posts</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="/post/photo">
+                            <span>Photo News</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="/post/video">
+                            <span>Video News</span>
+                        </a>
+                    </li>
+                    <li class="{% if url_name == 'categories' %}active{% endif %}">
+                        <a href="{% url 'categories' %}">
+                            <span>Categories</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="/tag/index">
+                            <span>Teglar</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="/post/draft">
+                            <span>Drafts</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="/post/schedule">
+                            <span>Schedules</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="menu-accordion">
+                <a href="/post/#">
+                    <i class="fa fa-folder-open"></i>
+                    <span>Web-site</span>
+                </a>
+                <ul class="sub-menu">
+                    <li class="">
+                        <a href="/page/index">
+                            <span>Pages</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="/comment/index">
+                            <span>Comments</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="/error/index">
+                            <span>Errors</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="menu-accordion ">
+                <a href="/post/#">
+                    <i class="fa fa-bullhorn"></i>
+                    <span>Advertising</span>
+                </a>
+                <ul class="sub-menu">
+                    <li class="">
+                        <a href="/adv/index">
+                            <span>Advertises</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="/place/index">
+                            <span>Places</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="menu-accordion {% if url_name == 'user_list' %}open{% endif %}">
+                <a href="/post/#">
+                    <i class="fa fa-user"></i>
+                    <span>Users</span>
+                </a>
+                <ul class="sub-menu">
+                    <li class="">
+                        <a href="#">
+                            <span>Users</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="/blogger/index">
+                            <span>Authors</span>
+                        </a>
+                    </li>
+                    <li class="{% if url_name == 'user_list' %} active {% endif %}">
+                        <a href="{% url 'user_list' %}">
+                            <span>Administrators</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="menu-accordion ">
+                <a href="/system/index">
+                    <i class="fa fa-gear"></i>
+                    <span>System</span>
+                </a>
+                <ul class="sub-menu">
+                    <li class="">
+                        <a href="/system/translation">
+                            <span>UI Translation</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="/system/dictionary">
+                            <span>System Dictionary</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="/system/logins">
+                            <span>Login History</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="/system/logs">
+                            <span>Admin Logs</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="/system/configuration">
+                            <span>Configuration</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="/system/backup">
+                            <span>Backups</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="/system/trash">
+                            <span>Trashed Posts</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>    
+    {% endwith %}
+</div>

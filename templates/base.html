@@ -1,0 +1,98 @@
+{% load static %}
+{% load bootstrap5 %}
+{% load widget_tweaks %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Base html</title>
+    
+    <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/checBo.css' %}">
+    <link rel="stylesheet" href="{% static 'css/chosen.css' %}">
+    <link rel="stylesheet" href="{% static 'css/chosen.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/feather.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
+    <link rel="stylesheet" href="{% static 'css/panel.css' %}">
+    <link rel="stylesheet" href="{% static 'css/perfect-scollbar.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/urban.css' %}">
+    <link rel="stylesheet" href="{% static 'css/urban.skins.css' %}">
+    <style>
+        .scroll{
+            overflow: auto;
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body class="sidebar-skin-dark">
+    <!-- quick launch panel -->
+    <div class="quick-launch-panel">
+        <div class="container">
+            <div class="quick-launcher-inner">
+                <a href="javascript:;" class="close" data-toggle="quick-launch-panel">x</a>
+
+                <div class="css-table-xs">
+                    <div class="col">
+                        <a href="app-calendar.html">
+                            <i class="icon-marquee"></i>
+                            <span>Calendar</span>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="app-gallery.html">
+                            <i class="icon-drop"></i>
+                            <span>Gallery</span>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="app-messages.html">
+                            <i class="icon-mail"></i>
+                            <span>Messages</span>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="app-social.html">
+                            <i class="icon-speech-bubble"></i>
+                            <span>Social</span>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="charts-flot.html">
+                            <i class="icon-pie-graph"></i>
+                            <span>Analytics</span>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="javascript:;">
+                            <i class="icon-esc"></i>
+                            <span>Documentation</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /quick launch panel -->
+    <div
+        class="app layout-fixed-header ">
+        <!-- sidebar panel -->
+        {% include 'include/sidebar.html' %}
+
+        <!-- /sidebar panel -->
+    {% block content %}
+
+    {% endblock %}
+
+    </div>
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/bootstrap.js' %}"></script>
+<script src="{% static 'js/scrollbar.js' %}"></script>
+<script src="{% static 'js/toggle.js' %}"></script>
+</body>
+</html>

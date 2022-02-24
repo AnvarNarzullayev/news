@@ -1,0 +1,17 @@
+{% load widget_tweaks %}
+<div>
+    <h3>Create Category</h3>
+</div>
+<form action="" method="POST">
+    {% csrf_token %}
+    {% render_field form.name style="width:100%;padding:5px;margin:10px 0;" value='' title="name" placeholder="Name" %}
+    {% render_field form.slug  style="width:100%;padding:5px;margin:10px 0;" value='' title="slug" placeholder="Slug" %}
+    {% render_field form.description style="width:100%;max-height:100px;margin:10px 0;" value='' title="description" %}
+    <label for="is_home">Is home :</label>
+    {% render_field form.is_home name="is_home" title="Hello, world!" %}
+    <br>
+    <label for="is_hidden">Is hidden</label>
+    {% render_field form.is_hidden name="is_hidden" title="Hello, world!" %}
+    <hr>
+    <button name="btn"  type="submit" style="width: 100%;" class="btn btn-primary"> Submit</button>
+</form>

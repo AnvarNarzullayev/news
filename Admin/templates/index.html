@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+        <div class="main-panel">
+            {% include 'inc/header.html' %}
+
+            <div class="main-content">
+                <ul class="breadcrumb ">
+                    <li><a href="{% url 'home' %}">Bosh sahifa</a></li>
+                    <li class="active">Post</li>
+                </ul>
+                <div class="button-panel">
+                    <a class="btn btn-fab btn-raised btn-primary" href="#" title="Create news Post"><i class="fa fa-plus"></i></a>
+                </div>
+                <div id="post-grid" data-pjax-container="">
+                    <div class="panel panel-default data-grid">
+                        <div class="panel-heading">
+                            <div class="row" id="data-grid-filters">
+                                <form id="w0" action="{% url 'news_search' %}" method="post">
+                                    {% csrf_token %}
+                                    <div class="col col-md-3  col-md-offset-3">
+                                        <div class="form-group field-post-_domain">
+                                            <select class="form-control">
+                                                {% for i in categories %}                                                
+                                                <option value="{{i.name}}">{{i.name}}</option>
+                                                {% endfor %}
+                                            </select>
+                                            <div class="help-block"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col col-md-6 col-md-6">
+                                        <div class="form-group field-post-search">
+                                            <input type="text" id="post-search" class="form-control" name="query" placeholder="Search by Title / Category">
+                                            <div class="help-block"></div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div id="data-grid" class="table-responsive scroll">
+                            {% if news %}
+                            <table class="table table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th><a href="/post/index?sort=type" data-sort="type">Type</a></th>
+                                        <th><a href="/post/index?sort=title" data-sort="title">Title</a></th>
+                                        <th><a href="/post/index?sort=views" data-sort="views">Views</a></th>
+                                        <th><a href="/post/index?sort=views" data-sort="views">Category</a></th>
+                                        <th><a href="/post/index?sort=status" data-sort="status">Status</a></th>
+                                        <th><a class="desc" href="/post/index?sort=published_on" data-sort="published_on">Published On</a></th>
+                                        <th><a href="/post/index?sort=is_main" data-sort="is_main">Is Main</a></th>
+                                        <th>Id</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for i in news %}
+                                    <tr class="  " data-key="620ddae1f2750876ef694475">
+                                        <td><a href="#" data-pjax="0" target="_blank"><i class="fa fa-external-link"></i></a></td>
+                                        <td><a href="#" data-pjax="0">{{i.name|truncatechars:100}}</a></td>
+                                        <td>{{i.views}}</td>
+                                        <th><a href="" data-sort="views">{{i.category}}</a></th>
+                                        <td>{{i.status}}</td>
+                                        <td>{{i.created_at|date}}</td>
+                                        <td>
+                                            <label id="checkBo_w30" class="switch switch-sm">
+                                                <input type="checkbox" name="is_main" {% if i.is_main %}checked{% endif %} ><span><i class='handle'></i></span>
+                                            </label>
+                                        </td>
+                                        <td><a href="/post/schedule?p=620ddae1f2750876ef694475" data-pjax="0">{{i.id}}</a></td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                            {% else %}
+                            <div style="color:red;text-align: center;">
+                                <h3>Siz izlagan qidiruv buyicha ma'lumot topilmadi!!!</h3>
+                                <h3>Afsus . Qaytadan harakat qilib kuring</h3>
+                            </div>
+                            {% endif %}
+                            <div class='panel-footer'>
+                                {% include 'inc/pagination.html' %}
+                                <div class='clearfix'></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+                <div id="loader">
+                    <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                </div>
+            </div>
+        </div>
+    <script>
+        function changeAttribute(id, att) {
+            var data = {};
+            data.id = id;
+            data.attribute = att;
+            $.get('/post/change', data)
+        }
+    </script>
+{% endblock %}
